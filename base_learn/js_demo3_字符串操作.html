@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串操作</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width:24%">方法</th>
+        <th>描述</th>
+    </tr>
+    <tr>
+        <td>charAt()</td>
+        <td>返回指定索引位置的字符</td>
+    </tr>
+    <tr>
+        <td>charCodeAt()</td>
+        <td>返回指定索引位置字符的 Unicode 值</td>
+    </tr>
+    <tr>
+        <td>concat()</td>
+        <td>连接两个或多个字符串，返回连接后的字符串</td>
+    </tr>
+    <tr>
+        <td>fromCharCode()</td>
+        <td>将 Unicode 转换为字符串</td>
+    </tr>
+    <tr>
+        <td>indexOf()</td>
+        <td>返回字符串中检索指定字符第一次出现的位置</td>
+    </tr>
+    <tr>
+        <td>lastIndexOf()</td>
+        <td>返回字符串中检索指定字符最后一次出现的位置</td>
+    </tr>
+    <tr>
+        <td>localeCompare()</td>
+        <td>用本地特定的顺序来比较两个字符串</td>
+    </tr>
+    <tr>
+        <td>match()</td>
+        <td>找到一个或多个正则表达式的匹配</td>
+    </tr>
+    <tr>
+        <td>replace()</td>
+        <td>替换与正则表达式匹配的子串</td>
+    </tr>
+    <tr>
+        <td>search()</td>
+        <td>检索与正则表达式相匹配的值</td>
+    </tr>
+    <tr>
+        <td>slice()</td>
+        <td>提取字符串的片断，并在新的字符串中返回被提取的部分</td>
+    </tr>
+    <tr>
+        <td>split()</td>
+        <td>把字符串分割为子字符串数组</td>
+    </tr>
+    <tr>
+        <td>substr()</td>
+        <td>从起始索引号提取字符串中指定数目的字符</td>
+    </tr>
+    <tr>
+        <td>substring()</td>
+        <td>提取字符串中两个指定的索引号之间的字符</td>
+    </tr>
+    <tr>
+        <td>toLocaleLowerCase()</td>
+        <td>根据主机的语言环境把字符串转换为小写，只有几种语言（如土耳其语）具有地方特有的大小写映射</td>
+    </tr>
+    <tr>
+        <td>toLocaleUpperCase()</td>
+        <td>根据主机的语言环境把字符串转换为大写，只有几种语言（如土耳其语）具有地方特有的大小写映射</td>
+    </tr>
+    <tr>
+        <td>toLowerCase()</td>
+        <td>把字符串转换为小写</td>
+    </tr>
+    <tr>
+        <td>toString()</td>
+        <td>返回字符串对象值</td>
+    </tr>
+    <tr>
+        <td>toUpperCase()</td>
+        <td>把字符串转换为大写</td>
+    </tr>
+    <tr>
+        <td>trim()</td>
+        <td>移除字符串首尾空白</td>
+    </tr>
+    <tr>
+        <td>valueOf()</td>
+        <td>返回某个字符串对象的原始值</td>
+    </tr>
+</table>
+
+</body>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 4px;
+        margin-top: 4px;
+    }
+
+    table td {
+        line-height: 2em;
+        min-width: 24px;
+        border: 1px solid #d4d4d4;
+        padding: 5px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        vertical-align: top;
+    }
+</style>
+<script>
+
+    var answer = "It's alright";
+    var firstName = new String("John");
+
+    console.log(answer);
+    console.log(answer.length);
+    console.log("打印第二个值" + answer[1]);
+    console.log(typeof (answer));
+
+    console.log("=============");
+
+    console.log(firstName);
+    console.log(firstName.length);
+    console.log('打印index为1的值' + firstName[1]);
+    console.log(typeof (firstName));
+
+    console.log("--------------");
+    var testString = "a-b-c-dasdadezzzfg";
+    // 这个方法我不知道和 [0] 有什么区别
+    console.log(testString.charAt(0));
+    console.log(testString.charCodeAt(0));
+    console.log("**************");
+    console.log(testString.split("-"));
+    // split()的第二个参数，表示返回的字符串数组的最大长度
+    console.log(testString.split("-", 2));
+
+    console.log("###############");
+    // 切片 start?, end?
+    console.log(testString.slice(0, 3));
+
+
+    // 数据类型转换
+    var testInt = 123.456;
+    console.log(typeof (String(testInt)));
+    console.log(typeof (testInt.toString()));
+
+    var testStr = "123";
+    console.log(typeof (Number(testStr)));
+    console.log(Number(testStr));
+    console.log(typeof (parseFloat(testStr)));
+    console.log(parseFloat(testStr));
+    console.log(typeof (parseInt(testStr)));
+    console.log(parseInt(testStr));
+
+
+
+</script>
+</html>

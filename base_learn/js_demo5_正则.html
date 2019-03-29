@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则用法</title>
+</head>
+<body>
+<p>match() 找到一个或多个正则表达式的匹配</p>
+<p>replace() 替换与正则表达式匹配的子串</p>
+<p>search() 检索与正则表达式相匹配的值</p>
+
+<hr>
+
+<p>在 JavaScript 中，正则表达式通常用于两个字符串方法 : search() 和 replace()。</p>
+
+<p>search() 方法 用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串，并返回子串的起始位置。</p>
+
+<p>replace() 方法 用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。</p>
+
+<hr>
+<p>/正则表达式主体/修饰符(可选)</p>
+var patt = /js/i
+
+</body>
+<script>
+    var testStr = "<div><asda>\"asdasdasd\'javascript asdasd Python  javaScript python" +
+        "<p>asdsdajs123 </p><img src='http://xx.jpg'>" +
+        "</div>"
+
+    var item = testStr.search(/div/i);
+    console.log(item);  // 返回第一个出现的下角标   i表示忽略大小写
+
+    var item2 = testStr.match(/div/i);
+    console.log(item2);
+
+    var item3 = testStr.replace(/<?()>/ig, "AAA");
+    console.log(item3);
+
+</script>
+</html>

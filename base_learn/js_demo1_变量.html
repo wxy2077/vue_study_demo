@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量以及对象 等数据类型</title>
+</head>
+<body>
+
+<button type="button" onclick="alert('被点击了')">test click</button>
+<div id="demo">
+    <h2>你好</h2>
+</div>
+<button type="button" onclick="f()">改变</button>
+
+<div>
+    <h3 style="color: red">注意实现</h3>
+    <p>JavaScript 对大小写是敏感的。</p>
+    <p>JavaScript 使用 Unicode 字符集。</p>
+    <p>常见的是驼峰法的命名规则，如 lastName (而不是lastname)。</p>
+
+    <div>
+        对象键值对的写法类似于：
+        <ul>
+            <li>PHP 中的关联数组</li>
+            <li>Python 中的字典</li>
+            <li>C 语言中的哈希表</li>
+            <li>Java 中的哈希映射</li>
+            <li>Ruby 和 Perl 中的哈希表</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+<script>
+
+    document.write("<p>test document.write</p>");
+
+    // window.alert(5 + 6);   // js弹出
+
+    window.console.log(Date());
+
+    function f() {
+        var x = document.getElementById("demo");   // js通过id 获取dom对象
+        x.innerHTML = "<h5>改变</h5>"    // 相当于渲染
+
+    }
+
+    // 数据类型  声明变量
+    var num = 1;
+    var tempNum = 16;                                  // Number 通过数字字面量赋值
+    var points = num * 10;                              // Number 通过表达式字面量赋值
+    var lastName = "Johnson";                         // String 通过字符串字面量赋值
+    var cars = ["Saab", "Volvo", "BMW"];              // Array  通过数组字面量赋值
+    // 或者这样 var cars=new Array("Saab","Volvo","BMW");
+    var person = {
+        firstName: "John",
+        lastName: "Doe",
+        hobby: ["play game", "eat food", 'drink coco']
+    };  // Object 通过对象字面量赋值
+
+    if("Name" in cars){
+        window.console.log("Name 存在 cars");
+        window.console.log(cars.Name);
+    }else {
+        window.console.log("Name 不存在 cars")
+    }
+</script>
+</html>

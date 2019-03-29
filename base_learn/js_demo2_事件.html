@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>各事件类型</title>
+
+    <style>
+        table td {
+            border: sienna 1px solid;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+<table style="border: #93dfdf 10px dashed">
+
+    <tr>
+        <td>事件</td>
+        <td>描述</td>
+    </tr>
+    <tr>
+        <td>onchange</td>
+        <td>HTML元素改变</td>
+    </tr>
+    <tr>
+        <td>onclick</td>
+        <td>点击HTML元素</td>
+    </tr>
+    <tr>
+        <td>onmouseover</td>
+        <td>用户在HTML元素上移动移动</td>
+    </tr>
+    <tr>
+        <td>onmouseout</td>
+        <td>用户从HTML元素以移开鼠标</td>
+    </tr>
+    <tr>
+        <td>onkeydown</td>
+        <td>3-1</td>
+    </tr>
+    <tr>
+        <td>onload</td>
+        <td>浏览器完成页面的加载</td>
+    </tr>
+</table>
+
+<div class="box1">
+    移动
+</div>
+
+<div>
+    <p><b>注意</b> <i>小坑</i> getElements 有S 返回的是一个数组</p>
+</div>
+
+</body>
+<style>
+    .box1 {
+        border: 1px orange solid;
+        width: 200px;
+        height: 320px;
+    }
+</style>
+
+<script>
+
+    // 页面加载完毕后执行
+    window.onload = function () {
+        console.log("页面加载完毕!");
+
+        // 小坑 getElements  有S 返回的是一个数组  getElementById 则没有这个坑
+        var box1 = document.getElementsByClassName("box1");
+
+        // 查看选择的对象信息
+        console.log(box1);
+
+        // 方法 直接()    属性  =
+
+        // 添加函数
+        box1[0].onclick = function () {
+            box1[0].innerHTML = "已改变内容";
+        };
+
+        // 事件委托
+        box1[0].addEventListener('click', function () {
+            console.log("box1被点击了!")
+        });
+
+        // 移动到指定元素
+        box1[0].addEventListener('mouseover', function () {
+            console.log("移动")
+        })
+
+    };
+
+</script>
+</html>

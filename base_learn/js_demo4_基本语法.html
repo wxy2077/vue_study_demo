@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // &&  与and
+    // ||  或or
+    // !   非not
+    var age = 12;
+    voteable=(age<18)?"年龄太小":"年龄已达到";
+
+    // if else 语句
+    // if(条件1){
+    //    条件1满足执行
+    // }else if (条件2){
+    //    条件2满足执行
+    // }else{
+    //    以上都不满足执行
+    // }
+
+    // for循环
+    // op1 op2 op3三个选项都可以省略
+    // for(op1; op2; op3){}
+    var x = 0;
+    for (var i=0; i<5; i++){
+
+        x = x + "该数字为 " + i + "<br>";
+        console.log(x)
+    }
+    // for in循环 目测就这个最人性 python的for in一样
+    var l = ["a", "b", "c"];
+    for(var i in l){
+        console.log("for in",i)
+    }
+    // while
+    // do while
+
+
+    console.log("---------------");
+    // switch语句
+    var d=new Date().getDay();
+    switch (d)
+    {
+        case 0:x="今天是星期日";
+            break;
+        case 1:x="今天是星期一";
+            break;
+        case 2:x="今天是星期二";
+            break;
+        case 3:x="今天是星期三";
+            break;
+        case 4:x="今天是星期四";
+            break;
+        case 5:x="今天是星期五";
+            break;
+        case 6:x="今天是星期六";
+            break;
+    }
+    console.log(x);
+
+
+</script>
+</html>
