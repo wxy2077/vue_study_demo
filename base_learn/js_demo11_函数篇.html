@@ -116,8 +116,41 @@ x = findMax(1, 123, 500, 115, 44, 88);
 this 关键字   相当于 Python self的用法
 
 
-
 </pre>
+
+<hr>
+<pre>
+
+这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量！
+
+// 要理解闭包，首先必须理解Javascript特殊的变量作用域。
+//变量的作用域无非就是两种：全局变量和局部变量。
+// http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
+// 函数内可以读取 外部变量     在函数外部自然无法读取函数内的局部变量
+// function demo2() {
+//     // var n = 999;   // 不能访问
+//     n = 999;          // 可以访问  不用var 声明变量   表示全局变量  严格模式下 报错
+// }
+// alert(n);
+
+function f1() {
+    var n = 9999;
+    function f2() {
+        alert(n)
+    }
+    return f2;   // 没有括号
+}
+var res = f1();
+// res();
+
+// 在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁
+
+它的最大用处有两个，
+    一个是前面提到的可以读取函数内部的变量，
+    另一个就是让这些变量的值始终保持在内存中。
+</pre>
+
+
 
 <script>
     // (function () {
@@ -156,6 +189,66 @@ this 关键字   相当于 Python self的用法
         return this;
     }
     console.log(windowDemo());                // 返回 window 对象
+
+    console.log("-------闭包-----------------------------------");
+    // 要理解闭包，首先必须理解Javascript特殊的变量作用域。
+    //变量的作用域无非就是两种：全局变量和局部变量。
+    // http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
+    // 函数内可以读取 外部变量     在函数外部自然无法读取函数内的局部变量
+    // function demo2() {
+    //     // var n = 999;   // 不能访问
+    //     n = 999;          // 可以访问  不用var 声明变量   表示全局变量  严格模式下 报错
+    // }
+    // alert(n);
+
+    function f1() {
+        var n = 9999;
+        addN = function () {
+            n+=1;
+            // alert(n)
+        };
+        function f2() {
+            alert(n)
+        }
+        return f2;   // 没有括号
+    }
+    var res = f1();
+    res();
+    addN();
+    res();
+    // 在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁
+
+    var name = "The Window";
+
+    var object = {
+        name : "My Object",
+
+        getNameFunc : function(){
+            return function(){
+                //  我理解的是调用 这一步时 内存被释放 this 指向的是全局
+                return this.name;
+            };
+        }
+    };
+
+    alert(object.getNameFunc()());
+
+    console.log('---------------------------------------------');
+    var name = "The Window";
+    var object = {
+        name : "My Object",
+
+        getNameFunc : function(){
+            var that = this;   //  this 这一步 还指向 object  把this 赋值给另外一个变量that
+            return function(){
+                return that.name;  // that 依旧指向object
+            };
+        }
+    };
+
+    alert(object.getNameFunc()());
+
+
 
 
 

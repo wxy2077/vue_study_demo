@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bom操作</title>
+</head>
+<body>
+<b>BOM</b>
+浏览器对象模型（Browser Object Model (BOM)）尚无正式标准。
+<p><b>Window 尺寸</b></p>
+<pre>
+有三种方法能够确定浏览器窗口的尺寸。
+
+对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：
+
+window.innerHeight - 浏览器窗口的内部高度(包括滚动条)
+window.innerWidth - 浏览器窗口的内部宽度(包括滚动条)
+</pre>
+<p><b>其他 Window 方法</b></p>
+<pre>
+一些其他方法：
+window.open() - 打开新窗口
+window.close() - 关闭当前窗口
+window.moveTo() - 移动当前窗口
+window.resizeTo() - 调整当前窗口的尺寸
+</pre>
+
+<p><b>window.screen 对象包含有关用户屏幕的信息。</b></p>
+
+<p><b>window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。</b></p>
+
+<p><b>window.navigator 对象包含有关访问者浏览器的信息。</b></p>
+
+<p><b>可以在 JavaScript 中创建三种消息框：警告框、确认框、提示框。</b></p>
+<pre>
+    警告框
+    window.alert()    // window可以省略
+警告框经常用于确保用户可以得到某些信息。
+当警告框出现后，用户需要点击确定按钮才能继续进行操作。
+
+    确认框
+    window.confirm("sometext");
+确认框通常用于验证是否接受用户操作。
+当确认卡弹出时，用户可以点击 "确认" 或者 "取消" 来确定用户操作。
+当你点击 "确认", 确认框返回 true， 如果点击 "取消", 确认框返回 false。
+
+    提示框
+    window.prompt("sometext","defaultvalue");
+提示框经常用于提示用户在进入页面前输入某个值。
+当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。
+如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 null。
+
+
+
+</pre>
+
+<p>点击按钮查看输入的对话框。</p>
+<button onclick="myFunction()">点我</button>
+<p id="demo"></p>
+
+<p><b>javascript定时器</b></p>
+<p>页面上显示时钟：</p>
+<p id="dameTime"></p>
+<button onclick="myStopFunction()">停止</button>
+
+
+<p><b>setInterval() 方法</b></p>
+<pre>
+    语法:   永久定时器
+    window.setInterval("javascript function",milliseconds);
+setInterval() 第一个参数是函数（function）。
+第二个参数间隔的毫秒数
+注意: 1000 毫秒是一秒。
+    停止：💡 定时器必须要命名 否则不能清除
+    clearInterval() 方法用于停止 setInterval() 方法执行的函数代码。
+
+</pre>
+<p><b>setTimeout() 方法</b></p>
+<pre>
+    语法：一次定时器
+    myVar= window.setTimeout("javascript function", milliseconds);
+
+setTimeout() 方法会返回某个值。在上面的语句中，值被储存在名为 myVar 的变量中。假如你希望取消这个 setTimeout()，你可以使用这个变量名来指定它。
+setTimeout() 的第一个参数是含有 JavaScript 语句的字符串。这个语句可能诸如 "alert('5 seconds!')"，或者对函数的调用，诸如 alertMsg。
+第二个参数指示从当前起多少毫秒后执行第一个参数。
+提示：1000 毫秒等于一秒。
+    停止：💡 定时器必须要命名 否则不能清除
+    clearTimeout() 方法用于停止执行setTimeout()方法的函数代码。
+
+</pre>
+<p>点击第一个按钮等待3秒后出现"Hello"弹框。</p>
+<p>点击第二个按钮来阻止第一个函数运行。（你必须在3秒之前点击它）。</p>
+
+<button onclick="altHello()">点我</button>
+<button onclick="myStopAlt()">停止弹框</button>
+
+<p><b>JavaScript 可以使用 document.cookie 属性来创建 、读取、及删除 cookie。</b></p>
+<pre>
+    JavaScript 中，创建 cookie 如下所示：
+document.cookie="username=John Doe";
+
+您还可以为 cookie 添加一个过期时间（以 UTC 或 GMT 时间）。默认情况下，cookie 在浏览器关闭时删除：
+document.cookie="username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT";
+
+您可以使用 path 参数告诉浏览器 cookie 的路径。默认情况下，cookie 属于当前页面。
+document.cookie="username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+
+    <b>使用 JavaScript 读取 Cookie</b>
+    var x = document.cookie;
+    	document.cookie 将以字符串的方式返回所有的 cookie，类型格式： cookie1=value; cookie2=value; cookie3=value;
+
+    <b>使用 JavaScript 修改 Cookie</b>
+    在 JavaScript 中，修改 cookie 类似于创建 cookie，如下所示： 旧的 cookie 将被覆盖。
+    document.cookie="username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";
+
+    <b>使用 JavaScript 删除 Cookie</b>  注意，当您删除时不必指定 cookie 的值。
+    删除 cookie 非常简单。您只需要设置 expires 参数为以前的时间即可，如下所示，设置为 Thu, 01 Jan 1970 00:00:00 GMT:
+    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+    <b>设置cookie值的函数</b>
+function setCookie(cname,cvalue,exdays){
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+以上的函数参数中，cookie 的名称为 cname，cookie 的值为 cvalue，并设置了 cookie 的过期时间 expires。
+该函数设置了 cookie 名、cookie 值、cookie过期时间。
+
+    <b>获取 cookie 值的函数</b>
+function getCookie(cname){
+  var name = cname + "=";
+  var bbc = document.cookie.split(';');
+  for(var i=0; i< bbc.length; i++)
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
+    cookie 名的参数为 cname。
+创建一个文本变量用于检索指定 cookie :cname + "="。
+使用分号来分割 document.cookie 字符串，并将分割后的字符串数组赋值给 ca (ca = document.cookie.split(';'))。
+循环 ca 数组 (i=0;i< ca.length;i++)，然后读取数组中的每个值，并去除前后空格 (c=ca[i].trim())。
+如果找到 cookie(c.indexOf(name) == 0)，返回 cookie 的值 (c.substring(name.length,c.length)。
+如果没有找到 cookie, 返回 ""。
+
+    <b>检测 cookie 值的函数</b>
+function checkCookie(){
+  var username=getCookie("username");
+  if (username!="")
+  {
+    alert("Welcome again " + username);
+  }
+  else
+  {
+    username = prompt("Please enter your name:","");
+    if (username!="" && username!=null)
+    {
+      setCookie("username",username,365);
+    }
+  }
+}
+最后，我们可以创建一个检测 cookie 是否创建的函数。
+如果设置了 cookie，将显示一个问候信息。
+如果没有设置 cookie，将会显示一个弹窗用于询问访问者的名字，并调用 setCookie 函数将访问者的名字存储 365 天：
+</pre>
+
+
+
+<script>
+    function myFunction(){
+        var x;
+        var person=prompt("请输入你的名字","默认值");
+        if (person!=null && person!=""){
+            x="你好 " + person + "! 今天感觉如何?";
+            document.getElementById("demo").innerHTML=x;
+        }
+    }
+
+    // 定时器
+    var myVar=setInterval(function(){
+        myTimer()
+    },1000);  //每隔1秒钟执行一次
+
+    // 获取事件并转换位本地时间 然后渲染到dom里面
+    function myTimer(){
+        var d=new Date();
+        var t=d.toLocaleTimeString();
+        document.getElementById("dameTime").innerHTML=t;
+    }
+    // 清除定时器
+    function myStopFunction(){
+        clearInterval(myVar);
+    }
+    var clickAlt;  // 创建变量 后面定时器清空作用
+    function altHello() {
+        // 创建定时器  并且赋值给 clickAlt
+        clickAlt = setTimeout(function () {
+            alert("hello!")
+        }, 3000)
+    }
+    // 清除 一次定时器
+    function myStopAlt() {
+        clearTimeout(clickAlt)
+    }
+
+
+
+</script>
+
+</body>
+</html>
