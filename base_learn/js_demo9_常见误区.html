@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见误区</title>
+</head>
+<body>
+<div>
+    <a>
+        <p>在常规的比较中，数据类型是被忽略的，以下 if 条件语句返回 true：</p>
+        <pre>
+var x = 10;
+var y = "10";
+if (x == y)  // true
+    </pre>
+        <hr>
+
+        <p>=== 为恒等计算符，同时检查表达式的值与类型，以下 if 条件语句返回 false</p>
+        <pre>
+    var x = 10;
+    var y = "10";
+    if (x === y)  // false
+
+    </pre>
+</div>
+<hr>
+<p><b>switch 语句会使用恒等计算符(===)进行比</b></p>
+
+<hr>
+<h3> + 号注意 </h3>
+<pre>
+加法是两个数字相加。
+连接是两个字符串连接.
+
+var x = 10 + 5;          // x 的结果为 15
+var x = 10 + "5";        // x 的结果为 "105"
+
+</pre>
+
+<hr>
+<h4>浮点型数据使用注意事项</h4>
+<pre>
+JavaScript 中的所有数据都是以 64 位浮点型数据(float) 来存储。
+所有的编程语言，包括 JavaScript，对浮点型数据的精确度都很难确定：
+    是的, Python里面对于浮点型也是很难确定精度，通常都是转换为整数 再运算
+
+var x = 0.1;
+var y = 0.2;
+var z = x + y            // z 的结果为 0.3
+if (z == 0.3)            // 返回 false
+</pre>
+<a href="http://www.runoob.com/js/js-mistakes.html">参照：</a> http://www.runoob.com/js/js-mistakes.html
+
+<script>
+    var x = 0.1;
+    var y = 0.2;
+    var z = x + y;            // z 的结果为 0.3
+    if (z == 0.3) {
+    }   // 返回 false
+
+</script>
+
+
+</body>
+</html>

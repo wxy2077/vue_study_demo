@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+</head>
+<body>
+<p> 面向对象</p>
+
+
+<script>
+    // 面向对象代码 练习
+
+    // 对象
+    var myObject = {
+        name: "wang",
+        hobby: ["play", "read", 'run'],
+        ability: function () {
+            console.log("program with javascript");
+        }
+
+    };
+    // 为什么不new对象   不理解
+    myObject.ability();
+
+    // 构造函数:
+    function MyHero(arg) {
+        var firstName = "tom";    // 私有属性，只能在对象构造函数内部使用
+        this.lastName = arg;     // //公有属性,在对象实例化后调用
+
+        // constructor(name){     // 额 不行  不是我想的构造方法  ES6 才更符合
+        //     this.name = name
+        // }
+
+        // 对象方法
+        this.ability = function (n) {
+            console.log(n);
+            console.log("fly");
+        }
+    }
+
+    MyHero.Run = function () {
+        alert("我是类方法 Run");
+    };
+
+    // This creates a new object
+    var x = new MyHero("John");     // 构造函数赋值   真的不能理解 这种写法 好别扭
+    console.log(x.firstName);       // 返回 undefined
+    console.log(x.lastName);        // 返回 "Doe"
+    x.ability(123);     // 调用对象方法
+
+
+
+    console.log("-----分割线--ES6语法------以下方法更符合Python思想---");
+    class Animal{
+        constructor(animalType){
+            // 构造方法
+            this.animalType = animalType
+        }
+        eat(food){
+            console.log("eat " + food)
+        }
+    }
+
+    class Dog extends Animal{
+        // 继承对象 Animal 类
+        constructor(name, color, animalType) {
+            // 继承对象时需要用 super方法给对象传入参数
+            super(animalType);
+            this.name = name;
+            this.color = color
+        }
+        getName() {
+           return this.name
+        }
+        getColor(){
+            return this.color
+        }
+
+        eat(food){
+            // 调用父类方法  可以不写super 直接覆盖 父类方法
+            super.eat(food);
+
+            return this.name + ' 吃 ' + food
+        }
+
+    }
+
+    let tom = new Dog("Tom", 'white', '斑点狗');
+    let jerry = new Dog("Jerry", 'yellow', '小泰迪');
+
+    // console.log(tom.getName());    // 调用实例方法
+    console.log(jerry.animalType);  //调用父类 实例属性
+    console.log(jerry.eat("骨头"));  //调用父类 实例属性
+    console.log(jerry.getName());
+    console.log(tom.getColor());
+    console.log(tom.eat("肉"));
+    console.log(tom.animalType);
+
+
+</script>
+</body>
+</html>

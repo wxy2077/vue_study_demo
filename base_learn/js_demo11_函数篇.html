@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js函数</title>
+</head>
+<body>
+<pre>
+> demo1 一般正常函数
+function functionName(parameters) {
+  执行的代码
+}
+
+
+> demo2 匿名函数
+var x = function (a, b){
+    return a + b
+}
+以上函数实际上是一个 匿名函数 (函数没有名称)。函数存储在变量中，不需要函数名称，通常通过变量名来调用
+
+
+	💡在 JavaScript 中，很多时候，你需要避免使用 new 关键字。
+
+    <h3>自调用函数</h3>
+(function () {
+    var x = "Hello!!";      // 我将调用自己
+    console.log(x);
+})();
+
+    <h3>箭头函数</h3>
+ES6 新增了箭头函数。
+箭头函数表达式的语法比普通函数表达式更简洁。
+
+(参数1, 参数2, …, 参数N) => { 函数声明 }
+
+(参数1, 参数2, …, 参数N) => 表达式(单一)
+// 相当于：(参数1, 参数2, …, 参数N) =>{ return 表达式; }
+
+
+当只有一个参数时，圆括号是可选的：
+(单一参数) => {函数声明}
+单一参数 => {函数声明}
+
+没有参数的函数应该写成一对圆括号:
+() => {函数声明}
+
+
+// ES5
+var x = function(x, y) {
+     return x * y;
+}
+
+// ES6
+const x = (x, y) => x * y;
+
+
+有的箭头函数都没有自己的 this。 不适合顶一个 对象的方法。
+
+当我们使用箭头函数的时候，箭头函数会默认帮我们绑定外层 this 的值，所以在箭头函数中 this 的值和外层的 this 是一样的。
+
+箭头函数是不能提升的，所以需要在使用之前定义。
+
+使用 const 比使用 var 更安全，因为函数表达式始终是一个常量。
+
+如果函数部分只是一个语句，则可以省略 return 关键字和大括号 {}，这样做是一个比较好的习惯:
+
+const x = (x, y) => { return x * y };    //简化  const x = (x, y) => x * y;
+
+</pre>
+
+<hr>
+<p>参数</p>
+<pre>
+// 默认参数  比如y    //OMG 居然不报错 Python里面 如果参数不够 直接报错
+function myFunction(x, y) {
+if (y === undefined) {
+  y = 0;
+   }
+}
+
+// ES5 里面 稍微正常
+function myFunction(x, y) {
+    y = y || 0;
+}
+
+// ES6 写法  这种就比较符合习惯  和Python很像
+function myFunction(x, y=10) {
+    // y is 10 if not passed or undefined
+    return x + y;
+}
+
+Arguments 对象
+JavaScript 函数有个内置的对象 arguments 对象。
+
+argument 对象包含了函数调用的参数数组。
+
+通过这种方式你可以很方便的找到最大的一个参数的值：
+
+
+function findMax() {
+    var i, max = arguments[0];
+
+    if(arguments.length < 2) return max;
+
+    for (i = 0; i < arguments.length; i++) {
+        if (arguments[i] > max) {
+            max = arguments[i];
+        }
+    }
+    return max;
+}
+
+x = findMax(1, 123, 500, 115, 44, 88);
+
+<hr>
+this 关键字   相当于 Python self的用法
+
+
+
+</pre>
+
+<script>
+    // (function () {
+    //     var x = "Hello!!";      // 我将调用自己
+    //     console.log(x);
+    // })();
+
+    function myFunction(x, y) {
+        if (y === undefined) {
+            y = 0;
+        }
+        console.log('myFunction: '+ x, y)
+    }
+    myFunction(1);
+
+    function demo2(x, y=1) {
+        return x + y
+    }
+    console.log(demo2('demo2: '+ 2));
+
+    function findMax() {
+        var max = arguments[0];
+
+        for(var i=0; i < arguments.length; i++ ){
+            if(arguments[i] > max){
+                max = arguments[i]
+            }
+        }
+        // console.log("max value is: " + max);
+        return max
+    }
+    console.log("max value is: " + findMax(3, 4, 5, 7, 1));
+    console.log("--------------------------------------------");
+    function windowDemo() {
+        // 直接this 返回window对象
+        return this;
+    }
+    console.log(windowDemo());                // 返回 window 对象
+
+
+
+</script>
+
+</body>
+</html>

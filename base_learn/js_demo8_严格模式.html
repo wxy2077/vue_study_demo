@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>use strict</title>
+</head>
+<body>
+<p>
+    我想想为什么有严格模式这么个操作？？？？<br>
+    - 历史原因吧，浏览器的各种不同，什么ES TypeScript 各种规范的不一样<br>
+    - 兼容性吧  <br>
+    以上是我短暂思考后的结论,并且没有查阅相关资料 (只想快速过一遍js)， 所以还属于疑问！
+</p>
+
+<ul>
+    <li>
+        <h3>不允许使用未定义的变量。</h3>
+    </li>
+    <li>
+        对象也是一个变量
+    </li>
+    <li>不允许删除变量或对象。</li>
+    <li>不允许删除函数。</li>
+    <li>不允许变量重名:</li>
+    <li>不允许使用八进制:</li>
+    <li>不允许使用转义字符:</li>
+    <li>不允许对只读属性赋值:</li>
+    <li>不允许对一个使用getter方法读取的属性进行赋值</li>
+    <li>不允许删除一个不允许删除的属性：</li>
+    <li>变量名不能使用 "eval" 字符串:</li>
+    <li>变量名不能使用 "arguments" 字符串:</li>
+    <li>不允许使用以下这种语句:  <i>with (Math){x = cos(2)};</i> // 报错</li>
+    <li>由于一些安全原因，在作用域 eval() 创建的变量不能被调用：</li>
+    <li>禁止this关键字指向全局对象。</li>
+    <li>参照：http://www.runoob.com/js/js-strict.html</li>
+</ul>
+
+
+<script>
+    "use strict";   // 不允许使用未定义的变量
+    // x = 3.14;       // 严格模式直接报错
+    // console.log(x);
+
+    console.log("--------------------");
+    try{
+
+        myFunction();
+
+    }catch (e) {
+        console.log("Error: "+ e)
+    }
+    function myFunction() {
+        y = 3.14;   // 报错 (y 未定义)
+    }
+
+</script>
+
+</body>
+</html>

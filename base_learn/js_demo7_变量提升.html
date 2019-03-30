@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量提升</title>
+</head>
+<body>
+
+<div>参照此博客:
+    <p>https://www.cnblogs.com/ghostwu/p/7287189.html</p>
+
+    <p>JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。</p>
+
+    <p>JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。</p>
+
+    <pre>
+demo1
+1 a = 'hello';
+2 var a;
+3 console.log( a );
+4
+5 //上面这段代码经过编译之后，变成下面这样
+6
+7 var a;  //被提升到当前作用域的最前面
+8 a = 'hello'; //留在原地，等待执行
+9 console.log( a );
+    </pre>
+    <pre>
+demo2
+1 console.log( a );
+2 var a = 'ghostwu';
+3
+4 //上面这段代码,经过编译之后，变成下面这样
+5
+6 var a;
+7 console.log( a );
+8 a = 'ghostwu';
+    </pre>
+
+</div>
+
+<div>
+    <p>和Python里面就没有这种操作比如 a = 5 就这样定义变量</p>
+
+    <p>疑惑的地方<br>
+        &nbsp; - javascript为何要搞这么个操作，一般正常人不会这样去使用变量吧？... 有哪些应用场景了？<br>
+        &nbsp; - 不是说先预解释 再执行吗？ 为何demo2 又是undefined？ <br>
+
+    </p>
+</div>
+<hr>
+<div>
+    <h3 style="color: red">通俗解释</h3>
+    <p>变量可以先使用后定义</p>
+
+    原因:
+    <ul>
+        <li>
+            javascript代码并不是一行一行往下执行的.
+        </li>
+        <li>
+            javascript执行分为2个步骤:<br>
+            &nbsp; - 编译(词法解释/预解释)<br>
+            &nbsp; - 执行
+        </li>
+    </ul>
+</div>
+
+<script>
+    a = 'hello';      // 先赋值
+    var a;            // 后声明变量
+    console.log('demo1 ' + a);   // 打印 hello
+
+    console.log("-------------------------");
+
+    console.log('demo2 ' + b);    // 打印 undefined   没有报错
+    var b = 'hello';   // 后声明赋值变量
+
+    console.log("函数提升-----------------------");
+    console.log("在ES5的严格模式下，函数声明不能嵌套在if块内，如问题所示");
+    console.log("下个文件探究 严格模式 ");
+    show();
+    var a = true;
+    if(a){
+        function  show() {
+            console.log(123);
+        }
+    }else{
+        function show() {
+            console.log(456);
+        }
+    }
+    console.log("--------------------------");
+
+
+</script>
+</body>
+</html>
