@@ -2,6 +2,7 @@
 Vue 学习笔记
 记录个人vue学习路径
 
+
 #### demo1
 > 组件间的练习  参照慕课网 https://www.imooc.com/video/16986
 - 演示
