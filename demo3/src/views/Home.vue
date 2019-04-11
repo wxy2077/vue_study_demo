@@ -1,33 +1,19 @@
 <template>
-    <div class="home">
-
-        <img alt="Vue logo" src="../assets/logo.png">
-
-        <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
-
-        <ListCate></ListCate>
-        <div v-html="message">
-        </div>
-
-    </div>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png">
+    <!--调用组件-->
+    <list-cate></list-cate>
+  </div>
 </template>
 
 <script>
-    // @ is an alias to /src
-    // import HelloWorld from '@/components/HelloWorld.vue'
-    import ListCate from '../components/ListCate'
-    export default {
-        name: 'home',
-        data() {
-            return {
-                message: "<p>123<h1>Title</h1><img src='https://www.baidu.com/img/bd_logo1.png'></p>",
+// @ is an alias to /src
+import ListCate from '../components/ListCate'
 
-            }
-        },
-        components: {
-            // HelloWorld
-            ListCate
-        },
-    }
-
+export default {
+  name: 'home',
+  components: {
+    "list-cate": ListCate,   // 组件注册重命名
+  }
+}
 </script>
