@@ -1,5 +1,6 @@
-
-
+/*
+* cookie 相关操作封装
+* */
 export function setCookie(name, value, days) {
     var d = new Date;
     d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
@@ -14,4 +15,3 @@ export function getCookie(name) {
 export function delCookie(name) {
     setCookie(name, "", -1)
 }
-
