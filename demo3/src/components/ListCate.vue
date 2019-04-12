@@ -12,7 +12,6 @@
 
 <script>
     import api from '../api/index'
-    import {listCate} from "../api/modules/article";
 
     export default {
         name: 'ListCate',
@@ -20,7 +19,6 @@
         data() {
             return {
                 CateInfo: ''
-
             }
         },
         methods: {
